@@ -15,16 +15,16 @@ const popupEdit = document.querySelector(".popup_type_edit");
 const popupNewCard = document.querySelector(".popup_type_new-card");
 
 // константы для закрытия попапов
-const CloseEdit = popupEdit.querySelector(".popup__close");
-const CloseNewCard = popupNewCard.querySelector(".popup__close");
+const closeEdit = popupEdit.querySelector(".popup__close");
+const closeNewCard = popupNewCard.querySelector(".popup__close");
 const closeImagePopup = popupImage.querySelector(".popup__close");
 
 // открытие попапов
-const ProfileEditButton = document.querySelector(".profile__edit-button");
+const profileEditButton = document.querySelector(".profile__edit-button");
 const addCardButton = document.querySelector(".profile__add-button");
 
 // Открытие попапа для редактирования профиля
-ProfileEditButton.addEventListener("click", function () {
+profileEditButton.addEventListener("click", function () {
   openPopup(popupEdit);
 });
 
@@ -34,12 +34,12 @@ addCardButton.addEventListener("click", function () {
 });
 
 // Закрытие попапа редактирования профиля
-CloseEdit.addEventListener("click", function () {
+closeEdit.addEventListener("click", function () {
   closePopup(popupEdit);
 });
 
 // Закрытие попапа "Новое место"
-CloseNewCard.addEventListener("click", function () {
+closeNewCard.addEventListener("click", function () {
   closePopup(popupNewCard);
 });
 
@@ -86,7 +86,7 @@ const nameInput = document.querySelector(".popup__input_type_name");
 const jobInput = document.querySelector(".popup__input_type_description");
 
 //4. Редактирование имени и инф
-ProfileEditButton.addEventListener("click", function () {
+profileEditButton.addEventListener("click", function () {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileJob.textContent;
 });
