@@ -1,24 +1,26 @@
+function handleEscKey(evt) {
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_is-opened");
+    if (openedPopup) {
+      closePopup(openedPopup);
+    }
+  }
+}
+
+export function closePopupByOverlay(event) {
+  if (event.target === event.currentTarget) {
+    closePopup(event.currentTarget);
+  }
+}
+
 //открытие попапа функция
 export function openPopup(popup) {
   popup.classList.add("popup_is-opened");
+  document.addEventListener("keydown", handleEscKey);
 }
 
 // функция закрытия попапа
 export function closePopup(popup) {
   popup.classList.remove("popup_is-opened");
+  document.removeEventListener("keydown", handleEscKey);
 }
-
-// 8. Открытие попапа с картинкой
-const popupImage = document.querySelector(".popup_type_image");
-const popupImageElement = popupImage.querySelector(".popup__image");
-const popupCaption = popupImage.querySelector(".popup__caption");
-
-// Функция открытия попапа с картинкой
-export function handleImageClick(link, name) {
-  popupImageElement.src = link;
-  popupImageElement.alt = name;
-  popupCaption.textContent = name;
-  popupImage.classList.add("popup_is-opened");
-}
-
-export { popupImage };
