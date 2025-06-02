@@ -20,9 +20,16 @@
 }
 
 .popup__button:disabled {
+  background-color: rgba(0, 0, 0, 1);
+  color:rgba(255, 255, 255, 1);
+  border: 1px solid rgba(0, 0, 0, 1);
+  cursor: not-allowed;
+}
+
+.popup__button_disabled {
+  opacity: 0.2;
   background-color: #fff;
   color: rgba(0, 0, 0, 1);
-  opacity: 0.2;
   border: 1px solid rgba(0, 0, 0, 1);
   cursor: not-allowed;
 }

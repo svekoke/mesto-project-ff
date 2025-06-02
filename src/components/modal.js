@@ -15,7 +15,9 @@ export function closePopupByOverlay(event) {
 
 //открытие попапа функция
 export function openPopup(popup) {
+  // добавление класса видимого попапа
   popup.classList.add("popup_is-opened");
+  // закрытие попапа на esc
   document.addEventListener("keydown", handleEscKey);
 }
 
