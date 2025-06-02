@@ -1,18 +1,18 @@
-const showInputError = function (input, errorMessage) {
-  const errorElement = input.nextElementSibling;
-  input.classList.add("popup__input_type_error");
+const showInputError = function (form, input, errorMessage, config) {
+  const errorElement = form.querySelector(`#${input.id}-error`);
+  input.classList.add(config.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add("popup__error_visible");
+  errorElement.classList.add(config.errorClass);
 };
 
-const hideInputError = function (input) {
-  const errorElement = input.nextElementSibling;
-  input.classList.remove("popup__input_type_error");
+const hideInputError = function (form, input, config) {
+  const errorElement = form.querySelector(`#${input.id}-error`);
+  input.classList.remove(config.inputErrorClass);
   errorElement.textContent = "";
-  errorElement.classList.remove("popup__error_visible");
+  errorElement.classList.remove(config.errorClass);
 };
 
-const checkInputValidity = function (input) {
+const checkInputValidity = function (form, input, config) {
   if (!input.validity.valid) {
     let errorMessage = "";
 
@@ -28,16 +28,16 @@ const checkInputValidity = function (input) {
       errorMessage = "Введите адрес сайта.";
     }
 
-    showInputError(input, errorMessage);
+    showInputError(form, input, errorMessage, config);
   } else {
-    hideInputError(input);
+    hideInputError(form, input, config);
   }
 };
 
 // активна ли кнопка сохранить
 function toggleButton(form, button, config) {
   // инпуты в массив
-  const inputs = Array.from(form.querySelectorAll(".popup__input"));
+  const inputs = Array.from(form.querySelectorAll(config.inputSelector));
 
   // валидны ли поля
   const formValid = inputs.every(function (input) {
@@ -57,7 +57,7 @@ function toggleButton(form, button, config) {
 function clearValidation(form, config) {
   const inputs = Array.from(form.querySelectorAll(config.inputSelector));
   inputs.forEach((input) => {
-    hideInputError(input);
+    hideInputError(form, input, config);
   });
   const button = form.querySelector(config.submitButtonSelector);
   toggleButton(form, button, config);
@@ -72,7 +72,7 @@ function enableValidation(config, formEditAvatar) {
 
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        checkInputValidity(input);
+        checkInputValidity(form, input, config);
         if (form !== formEditAvatar) {
           toggleButton(form, button, config);
         }

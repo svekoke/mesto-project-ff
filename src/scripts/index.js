@@ -1,5 +1,4 @@
 import "../pages/index.css";
-let userId = null;
 import { createCard, removeCard, handleLikeClick } from "../components/card.js";
 import {
   openPopup,
@@ -19,6 +18,8 @@ import {
   addNewCard,
   deleteCard,
 } from "../components/api.js";
+
+let userId = null;
 
 //валидация
 const config = {
@@ -105,7 +106,7 @@ profileEditButton.addEventListener("click", function () {
 });
 
 // сохранение формы
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   // отмена перезагрузки страницы
   evt.preventDefault();
 
@@ -132,7 +133,7 @@ function handleFormSubmit(evt) {
     });
 }
 
-profileEditForm.addEventListener("submit", handleFormSubmit);
+profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 // добавление карточки
 const formNewCard = popupNewCard.querySelector("form");

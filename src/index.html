@@ -42,12 +42,13 @@
       <footer class="footer page__section">
         <p class="footer__copyright">© 2021 Mesto Russia</p>
       </footer>
-      <div class="popup popup_type_edit">
+      <div class="popup popup_is-animated popup_type_edit">
         <div class="popup__content">
           <button type="button" class="popup__close"></button>
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="popup__form" name="edit-profile">
             <input
+              id="name-input"
               type="text"
               name="name"
               class="popup__input popup__input_type_name"
@@ -57,8 +58,9 @@
               maxlength="40"
               data-error=""
             />
-            <span class="popup__error"></span>
+            <span class="popup__error" id="name-input-error"></span>
             <input
+              id="description-input"
               type="text"
               name="description"
               class="popup__input popup__input_type_description"
@@ -67,19 +69,20 @@
               minlength="2"
               maxlength="200"
             />
-            <span class="popup__error"></span>
+            <span class="popup__error" id="description-input-error"></span>
             <button type="submit" class="button popup__button">
               Сохранить
             </button>
           </form>
         </div>
       </div>
-      <div class="popup popup_type_new-card">
+      <div class="popup popup_is-animated popup_type_new-card">
         <div class="popup__content">
           <button type="button" class="popup__close"></button>
           <h3 class="popup__title">Новое место</h3>
           <form class="popup__form" name="new-place">
             <input
+              id="place-name-input"
               type="text"
               name="place-name"
               class="popup__input popup__input_type_card-name"
@@ -89,22 +92,23 @@
               maxlength="30"
               data-error=""
             />
-            <span class="popup__error"></span>
+            <span class="popup__error" id="place-name-input-error"></span>
             <input
+              id="link-input"
               type="url"
               name="link"
               class="popup__input popup__input_type_url"
               placeholder="Ссылка на картинку"
               required
             />
-            <span class="popup__error"></span>
+            <span class="popup__error" id="link-input-error"></span>
             <button type="submit" class="button popup__button">
               Сохранить
             </button>
           </form>
         </div>
       </div>
-      <div class="popup popup_type_image">
+      <div class="popup popup_is-animated popup_type_image">
         <div class="popup__content popup__content_content_image">
           <button type="button" class="popup__close"></button>
           <img src="" alt="" class="popup__image" />
@@ -112,19 +116,20 @@
         </div>
       </div>
 
-      <div class="popup popup_type_avatar">
+      <div class="popup popup_is-animated popup_type_avatar">
         <div class="popup__content">
           <button type="button" class="popup__close"></button>
           <h3 class="popup__title">Обновить аватар</h3>
           <form class="popup__form" name="avatar-form">
             <input
+              id="avatar-input"
               type="url"
               name="avatar"
               class="popup__input popup__input_type_avatar-url"
               placeholder="Ссылка на аватар"
               required
             />
-            <span class="popup__error"></span>
+            <span class="popup__error" id="avatar-input-error"></span>
             <button type="submit" class="button popup__button">
               Сохранить
             </button>
